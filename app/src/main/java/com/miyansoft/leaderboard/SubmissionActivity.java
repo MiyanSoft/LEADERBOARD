@@ -1,7 +1,6 @@
 package com.miyansoft.leaderboard;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,9 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,17 +47,23 @@ public class SubmissionActivity extends AppCompatActivity implements View.OnClic
 
         findViewById(R.id.btn_submit_form).setOnClickListener(this);
     }
+    View initView(@LayoutRes int Layout){
+        return LayoutInflater.from(this).inflate(Layout, null, false);
+    }
   private void confirmSubmission() {
-      Dialog myDialogue = new Dialog(SubmissionActivity.this);
-      myDialogue.setContentView(R.layout.confirmation_dialogue);
-      myDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
-      ImageButton cancel = findViewById(R.id.cancel_dialogue);
-      Button yesButton = findViewById(R.id.btn_confirmation);
-      yesButton.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = initView(R.layout.confirmation_dialogue);
+        builder.setView(dialogView);
+        AlertDialog myDialogue = builder.create();
+        myDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        ImageButton cancel = dialogView.findViewById(R.id.cancel_dialogue);
+        Button yesButton = dialogView.findViewById(R.id.btn_confirmation);
+        yesButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
               uploadData();
               displaySubmissionSucceed();
+
           }
       });
       cancel.setOnClickListener(new View.OnClickListener() {
@@ -98,15 +103,19 @@ public class SubmissionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void displaySubmissionFailed() {
-        Dialog myDialogue = new Dialog(SubmissionActivity.this);
-        myDialogue.setContentView(R.layout.submission_failed);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = initView(R.layout.submission_failed);
+        builder.setView(dialogView);
+        AlertDialog myDialogue = builder.create();
         myDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialogue.show();
     }
 
     private void displaySubmissionSucceed() {
-        Dialog myDialogue = new Dialog(SubmissionActivity.this);
-        myDialogue.setContentView(R.layout.submission_success_dialogue);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = initView(R.layout.submission_success_dialogue);
+        builder.setView(dialogView);
+        AlertDialog myDialogue = builder.create();
         myDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialogue.show();
     }

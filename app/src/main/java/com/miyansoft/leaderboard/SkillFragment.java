@@ -72,14 +72,7 @@ public class SkillFragment extends Fragment {
             }
         });
 
-
-
         return view;
-
-
     }
-
-
-
 
 }
