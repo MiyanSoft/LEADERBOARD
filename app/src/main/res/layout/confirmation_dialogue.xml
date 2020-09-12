@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="18dp">
+
+    <TextView
+        android:id="@+id/txt_confirmation"
+        android:layout_width="190dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Are you sure"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435" />
+
+    <ImageView
+        android:id="@+id/question_mark"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center|right"
+        android:layout_marginEnd="88dp"
+        android:src="@drawable/question"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_confirmation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_confirmation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+    <ImageButton
+        android:id="@+id/cancel_dialogue"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center|right"
+        android:background="@android:color/white"
+        android:src="@drawable/ic_baseline_cancel_24"
+        app:layout_constraintBottom_toTopOf="@+id/question_mark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_confirmation"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="240dp"
+        android:gravity="center"
+        android:text="Yes"
+        android:textAllCaps="false"
+        android:textColor="@color/color_submit_button"
+        app:cornerRadius="@dimen/appbar_padding_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_confirmation"
+        app:layout_constraintVertical_bias="0.325"
+        app:strokeColor="@color/color_submit_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
